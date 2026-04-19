@@ -222,6 +222,13 @@ p { margin: 0 0 1em; }
 body.ink-hero .site-header:not(.scrolled) { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark b { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark small { color: rgba(247,243,236,0.6); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a { color: var(--paper); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a:hover { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a.active { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle { background: var(--paper); color: var(--ink); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::before,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::after { background: var(--ink); }
 
 .nav {
   display: flex;
@@ -1401,10 +1408,10 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 .flex-end { display: flex; justify-content: flex-end; }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Programs","url":"https://www.jadensplace2014.org/programs","hasPart":[{"@type":"Service","name":"Day One — Back-to-School Drive","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"The Table — Meals & Family Food","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Fresh Start — Clothing & Shoes","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Heritage Nights — Cultural Celebrations","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Open Field — Sports & Mentorship","provider":{"@type":"NGO","name":"Jaden's Place"}}]}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Programs","url":"https://www.jadensplace2014.org/programs","hasPart":[{"@type":"Service","name":"School Essentials Support Program","description":"Distributes backpacks, supplies, uniforms, and shoes to help students succeed academically without resource barriers.","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Confident Kids Program","description":"Youth empowerment for ages 11–13 combining hands-on learning, character-building activities, and peer connection.","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Boys To Leaders Program","description":"Anti-bullying, leadership, and confidence-building for middle school boys ages 11–13.","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Youth Wellness & Enrichment Events","description":"Youth mental health awareness, confidence-building, and exposure to positive experiences.","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Holiday Giveback Initiative","description":"Seasonal bike drives and food giveaways for families during the holidays.","provider":{"@type":"NGO","name":"Jaden's Place"}},{"@type":"Service","name":"Emergency Assistance Program","description":"Food, gift cards, and basic needs support for families facing eviction, job loss, illness, or loss.","provider":{"@type":"NGO","name":"Jaden's Place"}}]}
 </script>
 </head>
-<body>
+<body class="ink-hero">
 
 <header class="site-header">
   <div class="wrap nav">
@@ -1432,9 +1439,9 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
       </div>
     </div>
     <div class="rv d1">
-      <div class="chapter"><span class="num">01</span><span class="slash">/</span><span class="label">Flagship · Back-to-School Drive</span></div>
-      <h2 class="display">Day One.</h2>
-      <p class="lead">Our largest annual event — and our proudest. Every August, families arrive to grade-level supplies, haircuts, hot meals, music, and a sea of neighbors who came to help. So every kid walks in ready.</p>
+      <div class="chapter"><span class="num">01</span><span class="slash">/</span><span class="label">Flagship Program</span></div>
+      <h2 class="display">School Essentials <em>Support.</em></h2>
+      <p class="lead">Our flagship program distributes backpacks, supplies, uniforms, and shoes — so students succeed academically without resource barriers. Every August, families arrive to grade-level supplies and a sea of neighbors who came to help.</p>
       <ul class="article" style="padding:0; font-size:1.02rem; max-width: none; margin:20px 0;">
         <li>Grade-specific school supply bundles</li>
         <li>Hot meals and family food bags</li>
@@ -1454,11 +1461,12 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
       <h2 class="display">Six programs. One mission.</h2>
     </div>
     <div class="progs rv d1">
-      <article class="prog"><span class="prog-num">01</span><span class="prog-tag">Back-to-School Drive</span><h3>Day One</h3><p>Backpacks, notebooks, calculators, uniforms — the exact supplies to walk in ready. Distributed free to hundreds of students each August.</p></article>
-      <article class="prog"><span class="prog-num">02</span><span class="prog-tag">Meals &amp; Family Food</span><h3>The Table</h3><p>Hot meals at every event and seasonal food bags for families — because a hungry child can't focus, and a hungry family can't plan.</p></article>
-      <article class="prog"><span class="prog-num">03</span><span class="prog-tag">Clothing &amp; Shoes</span><h3>Fresh Start</h3><p>Seasonal clothing, school shoes, jackets, and uniforms. Because dignity starts with what a kid sees in the mirror.</p></article>
-      <article class="prog"><span class="prog-num">04</span><span class="prog-tag">Cultural Celebrations</span><h3>Heritage Nights</h3><p>Black History celebrations, community cookouts, and cultural programming that builds pride, belonging, and joy.</p></article>
-      <article class="prog"><span class="prog-num">05</span><span class="prog-tag">Sports &amp; Mentorship</span><h3>Open Field</h3><p>Baseball days, Bike Fest, and outings that get kids off their screens and into their community — with role models beside them.</p></article>
+      <article class="prog"><span class="prog-num">01</span><span class="prog-tag">Flagship</span><h3>School Essentials Support Program</h3><p>Distributes backpacks, supplies, uniforms, and shoes to help students succeed academically without resource barriers. Distributed free to hundreds of students each August.</p></article>
+      <article class="prog"><span class="prog-num">02</span><span class="prog-tag">Ages 11–13</span><h3>Confident Kids Program</h3><p>Hands-on learning, character-building activities, and peer connection to build resilience and self-worth. Every kid leaves with a Confidence Kit.</p></article>
+      <article class="prog"><span class="prog-num">03</span><span class="prog-tag">Middle School Boys</span><h3>Boys To Leaders Program</h3><p>For middle school boys ages 11–13. Anti-bullying, confidence-building, leadership skills, and learning positive ways to navigate challenges.</p></article>
+      <article class="prog"><span class="prog-num">04</span><span class="prog-tag">Youth Events</span><h3>Youth Wellness &amp; Enrichment Events</h3><p>Youth mental health awareness, confidence-building, and exposure to positive experiences. Featured: the annual Youth Mental Health Awareness Event.</p></article>
+      <article class="prog"><span class="prog-num">05</span><span class="prog-tag">Seasonal</span><h3>Holiday Giveback Initiative</h3><p>Seasonal support including bike drives and food giveaways for families during the holidays — so no family has to choose between the season and survival.</p></article>
+      <article class="prog"><span class="prog-num">06</span><span class="prog-tag">Crisis Response</span><h3>Emergency Assistance Program</h3><p>Food, gift cards, and basic needs support for families facing eviction, job loss, illness or hospitalization, or the death of a loved one.</p></article>
     </div>
   </div>
 </section>

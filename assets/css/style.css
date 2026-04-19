@@ -205,6 +205,13 @@ p { margin: 0 0 1em; }
 body.ink-hero .site-header:not(.scrolled) { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark b { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark small { color: rgba(247,243,236,0.6); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a { color: var(--paper); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a:hover { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a.active { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle { background: var(--paper); color: var(--ink); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::before,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::after { background: var(--ink); }
 
 .nav {
   display: flex;

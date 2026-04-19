@@ -222,6 +222,13 @@ p { margin: 0 0 1em; }
 body.ink-hero .site-header:not(.scrolled) { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark b { color: var(--paper); }
 body.ink-hero .site-header:not(.scrolled) .brand .mark small { color: rgba(247,243,236,0.6); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a { color: var(--paper); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a:hover { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-links a.active { color: var(--amber); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle { background: var(--paper); color: var(--ink); }
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::before,
+body.ink-hero .site-header:not(.scrolled) .nav-toggle span::after { background: var(--ink); }
 
 .nav {
   display: flex;
@@ -1404,7 +1411,7 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 {"@context":"https://schema.org","@type":"ContactPage","name":"Get Involved with Jaden's Place","url":"https://www.jadensplace2014.org/contact","mainEntity":{"@type":"NGO","name":"Jaden's Place","email":"info@jadensplace2014.org","address":{"@type":"PostalAddress","streetAddress":"14155 Paramount Blvd","addressLocality":"Paramount","addressRegion":"CA","postalCode":"90723"}}}
 </script>
 </head>
-<body>
+<body class="ink-hero">
 
 <header class="site-header">
   <div class="wrap nav">
