@@ -326,27 +326,35 @@ body.nav-open .nav-toggle span::before { top: 0; transform: rotate(45deg); }
 body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 
 @media (max-width: 960px) {
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle { display: inline-flex; z-index: 1002; position: relative; }
+  body.nav-open .site-header { z-index: 1001; }
   .nav-links {
     position: fixed;
-    inset: 0;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background: var(--ink);
     color: var(--paper);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 28px;
+    gap: 22px;
     transform: translateY(-100%);
     transition: transform 0.55s var(--ease);
-    padding: 80px 24px;
-    z-index: 100;
+    padding: 100px 24px 40px;
+    z-index: 1000;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-links a {
     color: var(--paper);
     font-family: var(--serif);
     font-weight: 400;
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(1.8rem, 6.5vw, 2.6rem);
     letter-spacing: -0.03em;
+    padding: 4px 0;
   }
   .nav-links a::after { background: var(--orange); }
   body.nav-open .nav-links { transform: translateY(0); }
@@ -1617,7 +1625,7 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
         <div class="chapter">
           <span class="num">03</span>
           <span class="slash">/</span>
-          <span class="label">Upcoming</span>
+          <span class="label">Recent Moments</span>
         </div>
         <h2 class="display">Events that turn hope into headlines.</h2>
       </div>
@@ -1627,21 +1635,21 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
     <div class="posts rv d1">
       <a class="post" href="events.html">
         <div class="pic"><img src="assets/images/bike-fest-2025.webp" alt="Bike Fest" loading="lazy" /></div>
-        <div class="meta"><b>Annual</b> · Jun 7, 2026</div>
-        <h3>Bike Fest 2026</h3>
+        <div class="meta"><b>Past Event</b> · Annual</div>
+        <h3>Bike Fest</h3>
         <p>A day of rides, giveaways, and helmets — kids hitting the streets safely and smiling.</p>
       </a>
       <a class="post" href="events.html">
         <div class="pic"><img src="assets/images/baseball-outing.webp" alt="Baseball Outing" loading="lazy" /></div>
-        <div class="meta"><b>Youth</b> · Jul 19, 2026</div>
+        <div class="meta"><b>Past Event</b> · Youth</div>
         <h3>Baseball at Dodger Stadium</h3>
         <p>Taking local kids to the ballpark — because memories and role models matter too.</p>
       </a>
       <a class="post" href="events.html">
         <div class="pic"><img src="assets/images/back-to-school.webp" alt="Back to school event" loading="lazy" /></div>
-        <div class="meta"><b>Flagship</b> · Aug 15, 2026</div>
+        <div class="meta"><b>Past Event</b> · Flagship</div>
         <h3>Back-to-School Giveaway</h3>
-        <p>Backpacks, meals, haircuts. Our biggest event of the year. Volunteers &amp; sponsors welcome.</p>
+        <p>Backpacks, meals, haircuts. Our biggest event — volunteers &amp; sponsors welcome.</p>
       </a>
     </div>
   </div>
@@ -1653,10 +1661,10 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
     <div class="cta-pull">
       <div>
         <h2 class="display">Your $25 puts a <em>backpack</em> on a child's shoulders.</h2>
-        <p>Every gift becomes shoes, supplies, meals, and moments. Donations processed securely through Givebutter — 100% goes back into Paramount and the surrounding community.</p>
+        <p>Every gift becomes shoes, supplies, meals, and moments. Donations processed securely — 100% goes back into Paramount and the surrounding community.</p>
       </div>
       <div class="ctas">
-        <a href="donate.html" class="btn ink lg fill">Donate via Givebutter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="donate.html" class="btn ink lg fill">Donate Securely <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a href="contact.html" class="link-arrow" style="color: var(--paper);">Or become a volunteer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
