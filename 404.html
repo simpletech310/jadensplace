@@ -533,10 +533,35 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 .hero-badge.b2 { bottom: 6%; left: -8%; transform: rotate(-4deg); box-shadow: 8px 8px 0 var(--ink); }
 
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .photo-stack { max-width: 440px; margin: 30px auto 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .photo-stack { max-width: 440px; margin: 20px auto 0; }
   .hero-badge.b2 { left: 6%; }
   .hero-badge.b1 { right: 4%; }
+}
+@media (max-width: 700px) {
+  .hero { padding-bottom: 60px; }
+  .photo-stack {
+    max-width: none;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 16px 0 0;
+  }
+  .photo-stack .ph-1 {
+    inset: 0 !important;
+    transform: none !important;
+    border-radius: 4px;
+    border: none;
+  }
+  .photo-stack .ph-2,
+  .photo-stack .ph-3,
+  .hero-badge { display: none; }
+  .hero-byline { padding-top: 18px; }
+  /* Ensure hero content shows even if JS is slow/blocked */
+  .h-stage,
+  .photo-stack .ph {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ---------- Impact strip ---------- */
