@@ -4,9 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0a0a0a" />
+<meta name="geo.region" content="US-CA" />
+<meta name="geo.placename" content="Paramount, California" />
+<meta name="geo.position" content="33.8894;-118.1598" />
+<meta name="ICBM" content="33.8894, -118.1598" />
+<meta name="DC.coverage" content="Paramount, CA, Los Angeles County, California, USA" />
 
 <title>Jaden's Place | No Child Held Back by Economic Scarcity</title>
-<meta name="description" content="Jaden's Place is a Paramount, CA nonprofit ensuring no child is held back by economic scarcity. We provide school supplies, meals, clothing, and community programs that help kids thrive. Donate, volunteer, or join a program today." />
+<meta name="description" content="Paramount, CA nonprofit (501c3). Free school supplies, youth mental health programs, Confident Kids mentorship, Holiday Giveback bike drives, and Emergency Assistance for Los Angeles County families. Donate or volunteer." />
 <meta name="keywords" content="Jaden's Place, Paramount CA nonprofit, donate to kids, school supplies donation, Los Angeles nonprofit, Ronald Adams, community programs, help children in poverty, back to school drive" />
 <meta name="author" content="Jaden's Place" />
 <link rel="canonical" href="https://www.jadensplace2014.org/" />
@@ -16,11 +21,19 @@
 <meta property="og:description" content="A Paramount, CA nonprofit providing school supplies, meals, clothing, and community programs for kids. Donate or volunteer today." />
 <meta property="og:url" content="https://www.jadensplace2014.org/" />
 <meta property="og:site_name" content="Jaden's Place" />
-<meta property="og:image" content="https://www.jadensplace2014.org/assets/images/back-to-school.webp" />
+<meta property="og:image" content="https://www.jadensplace2014.org/assets/images/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Jaden's Place — No child held back by economic scarcity. Paramount, CA nonprofit est. 2014." />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Jaden's Place | No Child Held Back by Economic Scarcity" />
 <meta name="twitter:description" content="A Paramount, CA nonprofit supporting children in need. Donate today." />
-<meta name="twitter:image" content="https://www.jadensplace2014.org/assets/images/back-to-school.webp" />
+<meta name="twitter:image" content="https://www.jadensplace2014.org/assets/images/og-image.jpg" />
+<meta name="twitter:image:alt" content="Jaden's Place — No child held back by economic scarcity. Paramount, CA nonprofit est. 2014." />
+<meta name="twitter:site" content="@jadensplace2014" />
+<meta name="twitter:creator" content="@jadensplace2014" />
 
 <link rel="icon" type="image/webp" href="assets/images/logo.webp" />
 <link rel="apple-touch-icon" href="assets/images/logo.webp" />
@@ -1282,6 +1295,17 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 .socials a:hover { background: var(--orange); transform: translateY(-3px); }
 .socials svg { width: 18px; height: 18px; }
 
+.foot-credit {
+  color: rgba(247,243,236,0.55);
+  font-size: 0.78rem;
+  border-bottom: 1px solid rgba(247,243,236,0.18);
+  padding-bottom: 1px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.foot-credit:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
 .foot-base {
   padding-top: 26px;
   display: flex;
@@ -1432,17 +1456,44 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
   "@context": "https://schema.org",
   "@type": "NGO",
   "name": "Jaden's Place",
+  "alternateName": ["Jaden's Place Youth Programs", "Jadens Place"],
   "url": "https://www.jadensplace2014.org/",
   "logo": "https://www.jadensplace2014.org/assets/images/logo.webp",
-  "image": "https://www.jadensplace2014.org/assets/images/back-to-school.webp",
-  "description": "Paramount, CA nonprofit ensuring no child is held back by economic scarcity — providing school supplies, meals, clothing, and community programs.",
+  "image": "https://www.jadensplace2014.org/assets/images/og-image.jpg",
+  "description": "Paramount, CA nonprofit ensuring no child is held back by economic scarcity. Free school supplies, youth mental health programs, mentorship, holiday giveaways, and emergency family assistance across Los Angeles County.",
+  "slogan": "No child held back by economic scarcity",
   "founder": { "@type": "Person", "name": "Ronald Adams" },
   "foundingDate": "2014",
+  "foundingLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Paramount", "addressRegion": "CA", "addressCountry": "US" } },
   "address": { "@type": "PostalAddress", "streetAddress": "14155 Paramount Blvd", "addressLocality": "Paramount", "addressRegion": "CA", "postalCode": "90723", "addressCountry": "US" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 33.8894, "longitude": -118.1598 },
   "email": "info@jadensplace2014.org",
   "sameAs": [ "https://www.instagram.com/jadensplace2014", "https://givebutter.com/m0BH4v" ],
-  "areaServed": "Los Angeles County, California",
-  "nonprofitStatus": "Nonprofit501c3"
+  "areaServed": [
+    { "@type": "City", "name": "Paramount", "containedInPlace": { "@type": "State", "name": "California" } },
+    { "@type": "City", "name": "Long Beach" },
+    { "@type": "City", "name": "Lakewood" },
+    { "@type": "City", "name": "Bellflower" },
+    { "@type": "City", "name": "Compton" },
+    { "@type": "City", "name": "Downey" },
+    { "@type": "AdministrativeArea", "name": "Los Angeles County" }
+  ],
+  "knowsAbout": [
+    "Youth empowerment",
+    "Back-to-school programs Paramount CA",
+    "Family emergency assistance",
+    "Youth mental health",
+    "Anti-bullying programs",
+    "Community resources Paramount California",
+    "Free school supplies Los Angeles County",
+    "Nonprofit 501c3 Paramount"
+  ],
+  "nonprofitStatus": "Nonprofit501c3",
+  "potentialAction": {
+    "@type": "DonateAction",
+    "target": "https://givebutter.com/m0BH4v",
+    "name": "Donate to Jaden's Place"
+  }
 }
 </script>
 </head>
@@ -1755,7 +1806,7 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
     </div>
     <div class="foot-base">
       <span>© <span data-year>2026</span> Jaden's Place · 501(c)(3) nonprofit organization</span>
-      <span>Built with purpose in Paramount, CA</span>
+      <span style="font-size: 0.78rem; opacity: 0.75;">Site by <a href="https://www.4everforward.net/" target="_blank" rel="noopener" class="foot-credit">Forever Forward</a></span>
     </div>
   </div>
 </footer>
