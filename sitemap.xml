@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.jadensplace2014.org/</loc><lastmod>2026-04-19</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/about.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/programs.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/events.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/donate.html</loc><lastmod>2026-04-19</lastmod><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/contact.html</loc><lastmod>2026-04-19</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/</loc><lastmod>2026-04-19</lastmod><priority>0.8</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/back-to-school-impact.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/why-we-fight-poverty.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/nutrition-matters.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/five-ways-to-help.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.jadensplace2014.org/blog/heritage-matters.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/</loc><lastmod>2026-04-19</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/about.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/programs.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/events.html</loc><lastmod>2026-04-19</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/donate.html</loc><lastmod>2026-04-19</lastmod><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/contact.html</loc><lastmod>2026-04-19</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/</loc><lastmod>2026-04-19</lastmod><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/back-to-school-impact.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/why-we-fight-poverty.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/nutrition-matters.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/five-ways-to-help.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://jadensplace.vercel.app/blog/heritage-matters.html</loc><lastmod>2026-04-19</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
 </urlset>
