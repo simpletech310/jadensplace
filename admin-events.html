@@ -1464,10 +1464,6 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Events at Jaden's Place","url":"https://jadensplace.vercel.app/events","about":{"@type":"NGO","name":"Jaden's Place","url":"https://jadensplace.vercel.app/"}}
 </script>
-
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="assets/js/supabase-config.js"></script>
-
 </head>
 <body class="ink-hero">
 
@@ -1479,64 +1475,239 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
   </div>
 </header>
 
-<section class="page-hero grain">
-  <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Home</a><span class="sep">/</span>Events</nav>
-    <h1 class="display rv">Come meet us <em>in person.</em></h1>
-    <p class="lead rv d1">Every event is open to the community. Whether you're bringing a family who needs support, showing up to volunteer, or just swinging by to say hi — we'll save you a seat, a meal, and a smile.</p>
-  </div>
-</section>
 
-<!-- UPCOMING -->
-<section class="section">
-  <div class="wrap">
-    <div class="intro rv">
-      <div class="chapter"><span class="num">01</span><span class="slash">/</span><span class="label">Upcoming</span></div>
-      <h2 class="display">On the calendar.</h2>
-      <p class="lead">Follow <a href="https://www.instagram.com/jadensplace2014" target="_blank" rel="noopener" style="color:var(--orange); font-weight:600; text-decoration: underline; text-underline-offset: 4px;">@jadensplace2014</a> for event updates — new events are announced there first.</p>
-    </div>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
 
+<style>
+  .admin-section { padding: clamp(80px, 10vw, 140px) 0; min-height: 80vh; }
+  .admin-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+  .admin-box h2 { font-family: var(--serif); color: var(--ink); margin-bottom: 24px; text-align: center; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: var(--ink-2); }
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 1rem;
+    background: var(--bone);
+  }
+  .form-group input:focus { outline: 2px solid var(--orange); }
+  .btn-submit { width: 100%; margin-top: 10px; justify-content: center; }
+  #admin-dashboard { display: none; }
+  #login-form-container { display: none; }
+  .toast {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: var(--paper); padding: 12px 24px;
+    border-radius: 999px; font-family: var(--sans); font-weight: 600;
+    font-size: 0.95rem; z-index: 1000; display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+</style>
+
+<section class="section admin-section grain">
+  <div class="wrap">
     
-    <div id="upcoming-container" class="split" style="margin-top: 40px;">
-      <!-- Dynamic Upcoming Event will be injected here -->
-      <p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--mute);">Loading upcoming event...</p>
+    <!-- Loader -->
+    <div id="admin-loader" style="text-align: center; font-family: var(--sans); font-weight: 600;">Loading...</div>
+
+    <!-- Login Form -->
+    <div id="login-form-container" class="admin-box">
+      <h2>Admin Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <button type="submit" class="btn primary btn-submit">Log In</button>
+      </form>
     </div>
-  </div>
-</section>
 
-
-<!-- PAST -->
-<section class="section ink grain">
-  <div class="wrap">
-    <div class="intro rv">
-      <div class="chapter"><span class="num">02</span><span class="slash">/</span><span class="label">In the Books</span></div>
-      <h2 class="display">A look at what we've built together.</h2>
-    </div>
-    
-    <div id="past-container" class="posts rv d1">
-      <!-- Dynamic Past Events will be injected here -->
-      <p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: rgba(247,243,236,0.7);">Loading past events...</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- CTA -->
-<section class="section section-sm">
-  <div class="wrap rv">
-    <div class="cta-pull">
-      <div>
-        <h2 class="display">Want to <em>sponsor</em> or host an event?</h2>
-        <p>We partner with local businesses, schools, and community groups every season. Let's build something that puts your name behind the kids who need it most.</p>
+    <!-- Dashboard -->
+    <div id="admin-dashboard" class="admin-box" style="max-width: 800px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h2 style="margin-bottom: 0;">Add New Event</h2>
+        <button id="btn-logout" class="btn outline" style="padding: 8px 16px;">Logout</button>
       </div>
-      <div class="ctas">
-        <a href="contact.html#sponsor" class="btn ink lg fill">Become a Sponsor</a>
-        <a href="donate.html" class="link-arrow" style="color:var(--paper);">Or donate now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
+      
+      <p style="color: var(--mute); margin-bottom: 30px; font-size: 0.95rem;">
+        Adding a new event will automatically make it the featured upcoming event, and move the current upcoming event into the "In the Books" past events section.
+      </p>
+
+      <form id="event-form">
+        <div class="form-group">
+          <label>Event Title</label>
+          <input type="text" id="ev-title" required placeholder="e.g. Take Action for Your Mind" />
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="ev-date" required />
+          </div>
+          <div class="form-group">
+            <label>Flyer Image</label>
+            <input type="file" id="ev-flyer" accept="image/*" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="form-group">
+            <label>Start Time</label>
+            <input type="time" id="ev-start" required />
+          </div>
+          <div class="form-group">
+            <label>End Time</label>
+            <input type="time" id="ev-end" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Location Name</label>
+          <input type="text" id="ev-loc-name" required placeholder="e.g. Paramount Park Middle School" />
+        </div>
+
+        <div class="form-group">
+          <label>Location Address</label>
+          <input type="text" id="ev-loc-address" required placeholder="e.g. 14698 Paramount Blvd, Paramount CA 90723" />
+        </div>
+
+        <button type="submit" id="btn-publish" class="btn primary btn-submit">Publish Event</button>
+      </form>
     </div>
+
   </div>
 </section>
 
+<div id="toast" class="toast"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const supabase = window.supabaseClient;
+    const loader = document.getElementById('admin-loader');
+    const loginContainer = document.getElementById('login-form-container');
+    const dashboard = document.getElementById('admin-dashboard');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+
+    async function checkAuth() {
+      const { data: { session } } = await supabase.auth.getSession();
+      loader.style.display = 'none';
+      if (session) {
+        loginContainer.style.display = 'none';
+        dashboard.style.display = 'block';
+      } else {
+        loginContainer.style.display = 'block';
+        dashboard.style.display = 'none';
+      }
+    }
+
+    await checkAuth();
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Logging in...';
+      
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      
+      if (error) {
+        showToast('Login failed: ' + error.message);
+        btn.textContent = 'Log In';
+      } else {
+        await checkAuth();
+      }
+    });
+
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      await checkAuth();
+    });
+
+    document.getElementById('event-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-publish');
+      btn.textContent = 'Publishing...';
+      btn.disabled = true;
+
+      try {
+        const title = document.getElementById('ev-title').value;
+        const date = document.getElementById('ev-date').value;
+        const time_start = document.getElementById('ev-start').value;
+        const time_end = document.getElementById('ev-end').value;
+        const loc_name = document.getElementById('ev-loc-name').value;
+        const loc_address = document.getElementById('ev-loc-address').value;
+        const file = document.getElementById('ev-flyer').files[0];
+
+        // 1. Upload Flyer
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('event-flyers')
+          .upload(fileName, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data: publicUrlData } = supabase.storage
+          .from('event-flyers')
+          .getPublicUrl(fileName);
+
+        const flyerUrl = publicUrlData.publicUrl;
+
+        // 2. Set all current upcoming events to false
+        await supabase
+          .from('events')
+          .update({ is_upcoming: false })
+          .eq('is_upcoming', true);
+
+        // 3. Insert new event
+        const { error: insertError } = await supabase
+          .from('events')
+          .insert({
+            title,
+            date,
+            time_start,
+            time_end,
+            location_name: loc_name,
+            location_address: loc_address,
+            flyer_url: flyerUrl,
+            is_upcoming: true
+          });
+
+        if (insertError) throw insertError;
+
+        showToast('Event published successfully!');
+        document.getElementById('event-form').reset();
+
+      } catch (err) {
+        showToast('Error: ' + err.message);
+      } finally {
+        btn.textContent = 'Publish Event';
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
 <footer class="site-foot">
   <div class="wrap">
     <div class="foot-top">
@@ -1564,148 +1735,5 @@ body.nav-open .nav-toggle span::after  { top: 0; transform: rotate(-45deg); }
 </footer>
 
 <script src="assets/js/main.js" defer></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", async () => {
-    const supabase = window.supabaseClient;
-    
-    // Fetch Upcoming Event
-    const { data: upcomingData, error: upcomingError } = await supabase
-      .from('events')
-      .select('*')
-      .eq('is_upcoming', true)
-      .single();
-      
-    const upcomingContainer = document.getElementById('upcoming-container');
-    
-    if (upcomingData) {
-      // Format date (e.g. May 29, 2026)
-      const d = new Date(upcomingData.date);
-      // Adjust for timezone offset to prevent off-by-one errors
-      d.setMinutes(d.getMinutes() + d.getTimezoneOffset());
-      
-      const dateOpts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const formattedDate = d.toLocaleDateString('en-US', dateOpts);
-      
-      const shortOpts = { year: 'numeric', month: 'short', day: 'numeric' };
-      const shortDate = d.toLocaleDateString('en-US', shortOpts);
-      
-      // Convert 24h to 12h time
-      const formatTime = (timeStr) => {
-        const [h, m] = timeStr.split(':');
-        const hour = parseInt(h);
-        const ampm = hour >= 12 ? 'PM' : 'AM';
-        const formattedHour = hour % 12 || 12;
-        return `${formattedHour}:${m} ${ampm}`;
-      };
-      
-      const tStart = formatTime(upcomingData.time_start);
-      const tEnd = formatTime(upcomingData.time_end);
-      
-      upcomingContainer.innerHTML = `
-        <div class="split-visual-wrap rv in">
-          <div class="split-visual">
-            <img src="${upcomingData.flyer_url}" alt="${upcomingData.title} Flyer" loading="lazy" />
-            <span class="split-caption">${shortDate}</span>
-          </div>
-        </div>
-        <div class="rv d1 in">
-          <h3 style="font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.025em; margin-bottom: 16px; line-height: 1.1;">${upcomingData.title}</h3>
-          
-          <p style="color: var(--ink-2); margin-bottom: 24px; font-size: 1.04rem; line-height: 1.55; max-width: 56ch;">
-            <strong>Date:</strong> ${formattedDate}<br>
-            <strong>Time:</strong> ${tStart} - ${tEnd}<br>
-            <strong>Location:</strong> ${upcomingData.location_name}<br>
-            ${upcomingData.location_address}
-          </p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="contact.html" class="btn primary">Get Involved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="https://www.instagram.com/jadensplace2014" target="_blank" rel="noopener" class="btn outline">Follow Updates</a>
-          </div>
-        </div>
-      `;
-    } else {
-      upcomingContainer.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--mute);">No upcoming events scheduled right now. Follow us on Instagram for updates!</p>';
-    }
-
-    // Fetch Past Events
-    const { data: pastData, error: pastError } = await supabase
-      .from('events')
-      .select('*')
-      .eq('is_upcoming', false)
-      .order('date', { ascending: false });
-
-    const pastContainer = document.getElementById('past-container');
-    
-    // We also want to keep the original hardcoded past events, so we don't lose the history.
-    // The instructions say "when we have a new events it will take the place of this one and move the past event down into the list with the other events"
-    // So we render the new past events from DB, then the hardcoded ones.
-    
-    const hardcodedPastHtml = `
-      <div class="post">
-        <div class="pic"><img src="assets/images/take-action-mind.jpg" alt="Take Action for Your Mind" loading="lazy" /></div>
-        <div class="meta"><b>2026</b> · Wellness Fair</div>
-        <h3 style="color:var(--paper);">Take Action for Your Mind</h3>
-        <p style="color:rgba(247,243,236,0.7);">Youth Mental Wellness Fair at Paramount Park Middle School.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/bike-fest-2025.webp" alt="Bike Fest 2025" loading="lazy" /></div>
-        <div class="meta"><b>2025</b> · Annual</div>
-        <h3 style="color:var(--paper);">Bike Fest 2025</h3>
-        <p style="color:rgba(247,243,236,0.7);">A parking lot turned playground — rides, races, and free helmets for dozens of kids.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/baseball-outing.webp" alt="Baseball Outing" loading="lazy" /></div>
-        <div class="meta"><b>2025</b> · Sports</div>
-        <h3 style="color:var(--paper);">Baseball Outing</h3>
-        <p style="color:rgba(247,243,236,0.7);">Local kids experienced their first MLB game — hot dogs, high-fives, a whole lot of wide eyes.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/blk-history-event.webp" alt="Black History" loading="lazy" /></div>
-        <div class="meta"><b>2025</b> · Heritage</div>
-        <h3 style="color:var(--paper);">Black History Celebration</h3>
-        <p style="color:rgba(247,243,236,0.7);">An evening of storytelling, performance, and community pride.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/back-to-school.webp" alt="Back to school" loading="lazy" /></div>
-        <div class="meta"><b>2023</b> · Record</div>
-        <h3 style="color:var(--paper);">1,100 families in a morning</h3>
-        <p style="color:rgba(247,243,236,0.7);">$2,500 raised. 1,100+ families served. Our proudest day — so far.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/past-event-1.webp" alt="Past event" loading="lazy" /></div>
-        <div class="meta"><b>Community</b> · Cookout</div>
-        <h3 style="color:var(--paper);">Community Cookout</h3>
-        <p style="color:rgba(247,243,236,0.7);">Plates full, porches full. A reminder that community is the real superpower.</p>
-      </div>
-      <div class="post">
-        <div class="pic"><img src="assets/images/past-event-3.webp" alt="Past event" loading="lazy" /></div>
-        <div class="meta"><b>Outreach</b> · Fair</div>
-        <h3 style="color:var(--paper);">Family Resource Fair</h3>
-        <p style="color:rgba(247,243,236,0.7);">Twenty local partners, one roof, dozens of families connected to support.</p>
-      </div>
-    `;
-
-    let dynamicHtml = '';
-    if (pastData && pastData.length > 0) {
-      dynamicHtml = pastData.map(ev => {
-        const d = new Date(ev.date);
-        d.setMinutes(d.getMinutes() + d.getTimezoneOffset());
-        const year = d.getFullYear();
-        return `
-          <div class="post">
-            <div class="pic"><img src="${ev.flyer_url}" alt="${ev.title}" loading="lazy" /></div>
-            <div class="meta"><b>${year}</b> · Event</div>
-            <h3 style="color:var(--paper);">${ev.title}</h3>
-            <p style="color:rgba(247,243,236,0.7);">${ev.location_name}</p>
-          </div>
-        `;
-      }).join('');
-    }
-    
-    pastContainer.innerHTML = dynamicHtml + hardcodedPastHtml;
-  });
-</script>
-
 </body>
 </html>
